@@ -1,0 +1,356 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+.meli-admin-divider{
+    margin: 30px auto;
+    width: 80%;
+    height: 2px;
+    background-color: #262E67;
+}
+
+/******* FLASH ******/
+.meli-flash-message-success, .meli-flash-message-error{
+    text-align: center;
+    background-color: lightgreen;
+    height: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.meli-flash-message-error{
+    background-color: indianred;
+}
+
+.meli-flash-p{
+    font-family: sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+
+/******* HEADER *******/
+
+header{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #262E67;
+}
+
+.meli-admin-header-h1{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white
+}
+
+
+
+/******** MENU BURGER *******/
+
+.meli-admin-header-menu-burger{
+    margin-left: 2%;
+    width: 5%;
+    min-width: 50px;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.meli-admin-header-menu-burger:hover{
+    cursor: pointer;
+}
+
+.meli-admin-header-menu-burger span{
+    height: 8px;
+    width: 100%;
+    background-color: white;
+}
+
+.meli-admin-header-menu-burger:hover span{
+    background-color: #FD027B;
+}
+
+
+/******* MAIN *******/
+
+main{
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-content: flex-start;
+}
+
+
+
+/******* ASIDE *******/
+
+aside{
+    width: 15%;
+    min-height: 90vh;
+    background-color: #262E67;
+}
+
+#meli-admin-menu-burger{
+    transform: translateX(0);
+    transition: 0.2s all ease-in-out;
+}
+
+aside nav{
+    width: 100%;
+    padding: 5%;
+}
+
+aside nav ul li{
+    width: 100%;
+    margin: 10%;
+}
+
+aside a{
+    color: white;
+}
+
+aside a:hover{
+    color: #FD027B;
+}
+
+
+/******* SECTION ADMIN-CONTAINER *******/
+section.meli-admin-container{
+    width: 85%;
+    padding: 1%;
+}
+
+
+.meli-admin-div{
+    margin:20px 0 30px;
+}
+
+
+
+/******** TABLE ********/
+
+.meli-admin-table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.meli-admin-table td{
+    text-align: center;
+    padding:5px;
+}
+
+.meli-admin-table td, .meli-admin-table th{
+    border:1px solid black;
+}
+
+.meli-admin-th-actions{
+    width: 15%;
+}
+
+.meli-admin-table a{
+    color: black;
+}
+
+.meli-admin-table a:hover{
+    color: grey;
+}
+
+
+
+/** FORM **/
+
+.meli-admin-img-box{
+    width: 20%;
+    max-width: 200px;
+}
+
+.meli-admin-img-box img{
+    width: 100%;
+    height: auto;
+}
+
+.meli-admin-form-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 30px 0;
+
+
+
+
+}
+
+.meli-admin-form-field-error{
+    color: red;
+}
+
+.meli-admin-form-row label, input, textarea{
+    margin: 10px 0;
+}
+
+.meli-admin-form-row .img-box{
+    width: 20%;
+}
+
+.meli-admin-form-row .img-box img{
+    width: 100%;
+    height: auto;
+}
+
+.meli-admin-form-label{
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.meli-admin-form-field{
+    font-size: 1.1em;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.meli-admin-form-submit{
+    text-align: center;
+}
+
+.meli-admin-form-submit-btn{
+    font-size: 1.3em;
+    color: white;
+    text-transform: uppercase;
+    background-color: #262E67;
+    border: 1px solid #262E67;
+    width: 20%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.meli-admin-form-submit-btn:hover{
+    cursor: pointer;
+    border: 1px solid #FD027B;
+    background-color: #FD027B;
+}
+
+
+.meli-admin-form-btn-btn{
+    padding:5px;
+    background-color: lightgrey;
+    border:1px solid lightgrey;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.meli-admin-form-btn-btn:hover{
+    cursor: pointer;
+    background-color: #FD027B;
+    color: white;
+}
+
+/** SEARCH **/
+.meli-admin-form-search{
+    margin-bottom: 20px;
+}
+.meli-admin-form-search .row{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.meli-admin-form-search .field{
+    width: 50%;
+    min-width: 200px;
+    font-size: 1em;
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+
+/** PAGINATION **/
+
+.meli-pagination-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meli-pagination-box span{
+    margin: 0 10px;
+}
+
+.meli-pagination-box span.selected{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****** MEDIA QUERIES *******/
+/*@media screen and (max-width: 992px){
+    .meli-admin-header-menu-burger{
+        min-width: 100px;
+    }
+    #meli-admin-menu-burger{
+        transform: translateX(-100%);
+        width: 100%;
+        display: none;
+    }
+
+    .meli-admin-header-h1 h1{
+        transform: translateX(-20%);
+    }
+    section.meli-admin-container{
+        width: 100%;
+    }
+
+
+}*/
+
+
+
+
+
+
+
+

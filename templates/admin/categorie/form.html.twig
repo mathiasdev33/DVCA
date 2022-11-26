@@ -1,0 +1,24 @@
+{% extends "admin/_base.html.twig"%}
+
+{% block content %}
+
+    <h2>Ajouter une catégorie</h2>
+
+    {{ form_start(categorieForm) }}
+    <section>
+
+        <div class="meli-admin-form-row">
+            {{ form_errors(categorieForm.title) }}
+            {{ form_label(categorieForm.title , 'Titre',{'label_attr': {'class': "meli-admin-form-label"}}) }}
+            {{ form_widget(categorieForm.title , {'attr': {'class': "meli-admin-form-field", 'placeholder': 'remplissez le titre...'}}) }}
+        </div>
+
+        <div class="meli-admin-form-submit">
+            <button class="meli-admin-form-submit-btn">Enregistrer</button>
+        </div>
+
+        {{ form_end(categorieForm) }}
+    </section>
+
+
+{% endblock %}

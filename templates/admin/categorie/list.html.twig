@@ -1,0 +1,39 @@
+{% extends "admin/_base.html.twig"%}
+
+{% block content %}
+
+    <section class="admin-list">
+        <h2 class="titreCategories" >Vous avez {{ categories | length }} categories dans votre base de donnée</h2>
+
+        <div class="btn-top">
+            <p><a href="{{ path ('admin_categorie_insert') }}">Ajouter</a></p>
+        </div>
+
+
+        <table class="meli-admin-table">
+            <tr>
+                <th>Nom</th>
+                <th class="meli-admin-th-actions">Action</th>
+            </tr>
+            {% for categorie in categories %}
+                <tr>
+                    <td rowspan="4">{{ categorie.title }}</td>
+                <tr>
+                    <td><a href="{{ path('admin_categorie_show', {'id': categorie.id}) }}">Voir</a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{ path('admin_categorie_update', {'id': categorie.id}) }}">Modifier</a></td>
+                </tr>
+                <tr>
+                    <td><a
+                                href="#"
+                                onclick="meliConfirmDelete('{{ path('admin_categorie_delete',{'id':categorie.id}) }}')"
+                        >Supprimer</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+
+
+{% endblock %}

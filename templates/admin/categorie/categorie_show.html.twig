@@ -1,0 +1,32 @@
+{% extends "admin/_base.html.twig"%}
+
+{% block content %}
+
+    <h2 class="titreCategories" >Vous avez {{ categorie.articles | length }} articles dans la categorie: {{ categorie.title }}</h2>
+    <div class="btn-top">
+        <p><a href="{{ path('admin_categories_list') }}">retour</a> </p>
+    </div>
+    <section class="admin-list">
+        <table class="meli-admin-table">
+            <tr>
+                <th>Nom</th>
+                <th>date</th>
+                <th>Publier</th>
+                <th class="meli-admin-th-actions">Action</th>
+            </tr>
+
+
+            {% for article in categorie.articles %}
+                <tr>
+                    <td rowspan="2">{{ article.title }}</td>
+                    <td rowspan="2">{{ article.date | date ('d-m-y') }}</td>
+                    <td rowspan="2">{{ article.published }}</td>
+                <tr>
+                    <td><a href="{{ path('admin_article_show', {'id': article.id}) }}">Voir</a></td>
+                </tr>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+        {% endblock %}
+

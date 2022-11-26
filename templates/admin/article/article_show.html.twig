@@ -1,0 +1,30 @@
+{% extends "admin/_base.html.twig"%}
+
+{% block content %}
+
+    <div class="btn-top">
+        <p><a href="{{ path('admin_articles_list' , {'id': article.categorie.id}) }}">retour</a> </p>
+    </div>
+    <div class="admin-article-bloc">
+        <div class="admin-article-content">
+            <div class="admin-article-img">
+                <img class="resp" src="{{ asset('uploads/' ~ article.image) }}" alt="{{ article.title }}" />
+            </div>
+            <div class="admin-article-desc">
+                <h2>{{ article.title }}</h2>
+                <p><strong>Dans: </strong>{{ article.categorie.title }}</p>
+                <p><strong>Date de publication: </strong>{{ article.date | date ('d-m-y') }}</p>
+                <p class="admin-text">{{ article.content }}</p>
+
+                <div class="admin-article-action">
+                    <p><a href="{{ path('admin_article_update', {'id': article.id}) }}">Modifier</a></p>
+                    <p><a href="{{ path ('admin_article_delete',{'id' : article.id}) }}" >supprimer</a></p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

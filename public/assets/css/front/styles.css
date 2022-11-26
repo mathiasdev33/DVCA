@@ -1,0 +1,74 @@
+/** VARS **/
+/** GENERALS CLASSES **/
+.txt-center {
+  text-align: center;
+}
+
+.txt-white {
+  color: #FFFFFF;
+}
+
+.txt-blue {
+  color: #518EC9;
+}
+
+.txt-bold {
+  font-weight: bold;
+}
+
+.divider-red {
+  background-color: #C3171D;
+  height: 5px;
+  width: 70%;
+  margin: 20vh auto 10vh;
+}
+
+/** KITS **/
+.kit-btn {
+  background-color: #518EC9;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 35px;
+  padding: 20px 20px;
+  width: 230px;
+  font-size: 14px;
+}
+.kit-btn:hover {
+  cursor: pointer;
+}
+@media screen and (max-width: 992px) {
+  .kit-btn {
+    padding: 12px 20px;
+    width: 190px;
+  }
+}
+
+/** INIT **/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+a:hover {
+  color: #C3171D;
+}
+
+li {
+  list-style-type: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */
