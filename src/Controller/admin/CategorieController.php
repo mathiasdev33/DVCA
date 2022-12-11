@@ -67,7 +67,7 @@ class CategorieController extends AbstractController
 
         if ($categorieForm->isSubmitted() && $categorieForm->isValid()) {
             $this->addFlash(
-                'succes',
+                'success',
                 'Votre catégorie ' . $categorie->getTitle() . ' a bien été crée !'
             );
             $entityManager->persist($categorie);
@@ -88,15 +88,13 @@ class CategorieController extends AbstractController
         {
             $categorie = $categorieRepository->find($id);
 
-            //on génère le formulaire en utilisant le gabarit + une instance de l entité Article
             $categorieForm = $this->createForm(CategorieType::class, $categorie);
 
-            // on lie le formulaire aux données de POST
             $categorieForm->handleRequest($request);
 
             if ($categorieForm->isSubmitted() && $categorieForm->isValid()) {
                 $this->addFlash(
-                    'succes',
+                    'success',
                     'Votre catégorie ' . $categorie->getTitle() . ' a bien été modifiée !'
                 );
                 $entityManager->persist($categorie);
@@ -121,7 +119,7 @@ class CategorieController extends AbstractController
             $entityManager->remove($categorie);
             $entityManager->flush();
             $this->addFlash(
-                'succes',
+                'success',
                 'Votre catégorie '. $categorie->getTitle().' a bien été supprimée !'
             );
 
