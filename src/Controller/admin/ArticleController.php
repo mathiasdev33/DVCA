@@ -40,7 +40,14 @@ class ArticleController extends AbstractController
     {
         $article = $articleRepository->find($id);
         if (is_null($article)){
-            throw new NotFoundHttpException();
+
+            $this->addFlash(
+                'error',
+                'Votre article n\'éxiste plus !'
+            );
+
+            return $this->redirectToRoute('admin_articles_list');
+    
         }
         return $this->render("admin/article/article_show.html.twig", [
             'article' => $article
@@ -88,7 +95,7 @@ class ArticleController extends AbstractController
                 $entityManager->persist($article);
                 $entityManager->flush();
                 $this->addFlash(
-                'succes',
+                'success',
                 'Votre article ' . $article->getTitle() . ' à bien été crée !'
             );
 
@@ -144,7 +151,7 @@ class ArticleController extends AbstractController
             }
 
             $this->addFlash(
-                'succes',
+                'success',
                 'Votre article ' . $article->getTitle() . ' à bien été modifiée !'
             );
             $entityManager->persist($article);
@@ -176,7 +183,7 @@ class ArticleController extends AbstractController
             $entityManager->remove($article);
             $entityManager->flush();
             $this->addFlash(
-                'succes',
+                'success',
                 'Votre article ' . $article->getTitle() . ' à bien été supprimée !'
             );
 
