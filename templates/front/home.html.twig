@@ -6,4 +6,10 @@
         Bienvenue
     </h1>
 
+    {% for message in app.flashes('message') %}
+            <div>
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+
 {% endblock %}

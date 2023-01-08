@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use App\Repository\ArticlesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @ORM\Entity(repositoryClass=ArticlesRepository::class)
  */
-class Article
+class Articles
 {
     /**
      * @ORM\Id
@@ -23,7 +25,7 @@ class Article
     private $title;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $content;
 
@@ -38,14 +40,21 @@ class Article
     private $published;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="articles", orphanRemoval=true, cascade={"persist"})
      */
-    private $image;
+    private $images;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="articles")
      */
     private $categorie;
+
+    
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,7 +78,7 @@ class Article
         return $this->content;
     }
 
-    public function setContent(?string $content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
 
@@ -88,7 +97,7 @@ class Article
         return $this;
     }
 
-    public function getPublished(): ?bool
+    public function isPublished(): ?bool
     {
         return $this->published;
     }
@@ -100,14 +109,32 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
     {
-        return $this->image;
+        return $this->images;
     }
 
-    public function setImage(string $image): self
+    public function addImage(Images $image): self
     {
-        $this->image = $image;
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setArticles($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getArticles() === $this) {
+                $image->setArticles(null);
+            }
+        }
 
         return $this;
     }
@@ -123,4 +150,6 @@ class Article
 
         return $this;
     }
+
+   
 }
