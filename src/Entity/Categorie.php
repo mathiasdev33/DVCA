@@ -25,7 +25,7 @@ class Categorie
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="categorie")
+     * @ORM\OneToMany(targetEntity=Articles::class, mappedBy="categorie")
      */
     private $articles;
 
@@ -34,6 +34,7 @@ class Categorie
         $this->articles = new ArrayCollection();
     }
 
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -52,14 +53,14 @@ class Categorie
     }
 
     /**
-     * @return Collection<int, Article>
+     * @return Collection<int, Articles>
      */
     public function getArticles(): Collection
     {
         return $this->articles;
     }
 
-    public function addArticle(Article $article): self
+    public function addArticle(Articles $article): self
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
@@ -69,7 +70,7 @@ class Categorie
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeArticle(Articles $article): self
     {
         if ($this->articles->removeElement($article)) {
             // set the owning side to null (unless already changed)
@@ -80,4 +81,6 @@ class Categorie
 
         return $this;
     }
+
+
 }

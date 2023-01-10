@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <title>{% block Title %}Dio renov{% endblock Title %}</title>
+    <title>{% block Title %}{% endblock Title %}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -12,6 +12,7 @@
         <h1>test</h1>
     </header>
     {% block content %}{% endblock %}
+    <a href="{{ path ('contact') }}">Nous contacter</a>
     <footer></footer>
 </body>
 </html>

@@ -22,11 +22,10 @@
                     <td rowspan="2">{{ article.date | date ('d-m-y') }}</td>
                     <td rowspan="2">{{ article.published }}</td>
                 <tr>
-                    <td><a href="{{ path('admin_article_show', {'id': article.id}) }}">Voir</a></td>
+                    <td><a href="{{ path('article_show', {'id': article.id}) }}">Voir</a></td>
                 </tr>
                 </tr>
             {% endfor %}
         </table>
     </section>
         {% endblock %}
-
